@@ -1,4 +1,4 @@
-defmodule GenrateAndTest do
+defmodule GenerateAndTest do
   @moduledoc """
   This script is designed to show the functionality of the AI Algorithm
   that is known as Generate and Test. It will produce the results to a
@@ -69,4 +69,4 @@ defmodule GenrateAndTest do
   end
 end
 
-SumAndTest.start
+GenerateAndTest.start
