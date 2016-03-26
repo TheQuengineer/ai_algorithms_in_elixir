@@ -3,6 +3,9 @@ defmodule GenerateAndTest do
   This script is designed to show the functionality of the AI Algorithm
   that is known as Generate and Test. It will produce the results to a
   addition question and answer whether or not the answer is even.
+
+  For Context go and read the associated blog post at
+  http://www.automatingthefuture.com/blog/2016/3/21/ai-generate-and-test-elixir
   """
 
   def start do
