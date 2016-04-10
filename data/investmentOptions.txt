@@ -1,0 +1,121 @@
+Grocery Outlet, 3.39
+Target, 3.28
+Under Armor, 5.38
+Chipotle, 2.21
+AMC Theatres, 1.32
+Gold Nugget Makers, 3.32
+Marinas, 2.10
+Tesla Model 3, 1.19
+La Croix, 3.21
+Essex Properties, 1.39
+Comcast, 1.23
+AT&T, 4.21
+Pete's Coffee, 6.38
+HP, 11.12
+Apple, 2.17
+Wells Fargo, 1.20
+Macco, 2.99
+Firestone, 1.22
+Spoon, 1.33
+Microsoft, 6.21
+Bank Of America, 0.23
+Jabber, 0.11
+ZenDesk, 3.45
+StarBucks, 2.33
+NBA, 2.12
+Nike, 3.21
+California Pizza Kitchen, 2.73
+Weed Maps, 5.32
+eero, 1.98
+Vimeo, 3.12
+Baxter, 0.02
+Balloon Inc, 0.12
+GNC, 1.12
+Gas Inc, 0.11
+Sony, 9.21
+Naughty Dog, 8.21
+Riot Games, 2.88
+Bleacher Report, 5.32
+Lehman Brothers, 0.01
+AIG, 1.01
+Eylus, 0.21
+Kygeo, 0.11
+GymBot, 0.22
+Oreo, 3.11
+Rubbermaid, 0.92
+Subway, 1.03
+palm, 1.99
+Canon, 1.45
+IBM, 5.33
+Ask, 0.13
+Kodak, 3.21
+Oral-B, 2.28
+Hershey's, 0.03
+Dell, 2.19
+John Deere, 1.23
+CNN, 3.27
+Youtube, 2.28
+Costco, 2.92
+Kellog's, 0.44
+Chilis, 0.33
+KFC, 0.00
+KMart, -5.32
+Zippo, -2.99
+Fedex, -1.09
+Wendy's, 1.39
+USPS, -9.32
+Lego, 3.22
+NASA, 4.21
+LandRover, -7.12
+Colgate, 2.19
+Gatorade, 3.55
+Chevron, -0.89
+DHL, 0.00
+The Motion Man, 0.87
+Latby Industries, 0.99
+Pizza Hut, 6.00
+Crest, 0.99
+Ebay, 2.21
+Virgin, 3.25
+WooCoo, 0.76
+WellPixeled, 2.32
+VISA, 0.89
+FLyder, 3.01
+Itchy Pig, -3.21
+Hot Wheels, 0.13
+Cisco, 6.32
+Oracle, -3.21
+FirePup, -8.99
+NFL, 4.22
+PEPSI, 2.77
+Coke, 5.33
+Google, 6.19
+Facebook, 4.97
+Instagram, -33.22
+Twitter, -3.21
+ABC, 1.11
+Fox, -2.19
+Hulu, 2.37
+Boeing, 4.55
+Subaru, 2.43
+SEGA, -0.24
+Samsung, 2.09
+Bic, 0.03
+Adobe, 4.88
+Sun Microsystems, 5.32
+Plataformatec, 7.02
+Burger King, 6.39
+Compaq, 3.01
+ESPN, 7.21
+7 up, -9.33
+Blue Bottle, 9.01
+Taco Bell, -14.22
+CAT, 3.67
+PopTarts, -2.77
+Wink, 5.03
+oyogi, -0.88
+WeWork, 2.97
+McDonald's -3.23
+Shipster, 0.93
+Sprint, 0.92
+Nabisco, 2.10
