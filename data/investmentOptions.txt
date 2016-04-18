@@ -115,7 +115,7 @@ PopTarts, -2.77
 Wink, 5.03
 oyogi, -0.88
 WeWork, 2.97
-McDonald's -3.23
+McDonald's, -3.23
 Shipster, 0.93
 Sprint, 0.92
 Nabisco, 2.10
