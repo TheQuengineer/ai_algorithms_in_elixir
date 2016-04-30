@@ -8,6 +8,8 @@ defmodule GenerateAndTest do
   http://www.automatingthefuture.com/blog/2016/3/21/ai-generate-and-test-elixir
   """
 
+  require Integer
+
   def start do
     start_list
     generate(20)
@@ -33,7 +35,7 @@ defmodule GenerateAndTest do
   end
 
   defp even?(number) when is_number(number) do
-    if rem(number, 2) == 0, do: true, else: false
+    if Integer.is_even(number)  do: true, else: false
   end
 
   defp say_answer(true) do
