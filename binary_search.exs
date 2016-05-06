@@ -6,7 +6,7 @@ defmodule BinarySearch do
   post about binary searching in elixir on http://automatingthefuture.com.
   """
 
-  def find_in(file, target) when is_bitstring(file) do
+  def find_in(file, target) when is_bitstring(file) and is_integer(target) do
     {:ok, data} = File.read(file)
     IO.puts("Searching for #{target} in file #{file}")
     data
