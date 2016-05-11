@@ -24,7 +24,7 @@ defmodule BinarySearch do
     Enum.each(files, &search_through.(&1, target))
   end
 
-  defp find_in(file, target) when is_bitstring(file) do
+  def find_in(file, target) when is_bitstring(file) and is_integer(target) do
     {:ok, data} = File.read(file)
     data
     |> prepare
@@ -69,3 +69,5 @@ defmodule BinarySearch do
     |> Enum.map(&String.to_integer(&1))
   end
 end
+
+BinarySearch.find(777)
