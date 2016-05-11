@@ -1,7 +1,7 @@
-defmodule BinarySearch do
+defmodule ConcurrentSearch do
   @moduledoc """
-  The easiest search algorithm in computer science. This particular implementation
-  Works in a concurrent fashion. It simultanously searches every player file in the
+  This uses the Binary search algo which is the easiest search algorithm in computer science.
+  This particular implementation simultanously searches every player file in the
   data directory for the target supplied by the user. It portrays the scalability
   and flexibility of elixir.
 
@@ -70,4 +70,4 @@ defmodule BinarySearch do
   end
 end
 
-BinarySearch.find(777)
+ConcurrentSearch.find(777)
