@@ -1,19 +1,39 @@
 defmodule BinarySearch do
   @moduledoc """
   The easiest search algorithm in computer science. This particular implementation
-  Works with a flat text file that is in the data/ directory of this project.
-  The entry point is the `find_in/2` function. This module accompanies the third blog
-  post about binary searching in elixir on http://automatingthefuture.com.
+  Works in a concurrent fashion. It simultanously searches every player file in the
+  data directory for the target supplied by the user. It portrays the scalability
+  and flexibility of elixir.
+
+  The entry point is the `find/1` function. This module accompanies the third blog
+  post about performing concurrent searches with elixir on http://automatingthefuture.com.
   """
 
-  def find_in(file, target) when is_bitstring(file) do
+  def find(target) when is_number(target) do
+    search_through = fn(file, target) ->
+      IO.puts("Searching for #{target} in file #{file}")
+      caller = self()
+      spawn(fn() ->
+        send(caller, {find_in(file, target), file})
+      end)
+      get_result
+    end
+
+    files = fetch_files()
+
+    Enum.each(files, &search_through.(&1, target))
+  end
+
+  defp find_in(file, target) when is_bitstring(file) do
     {:ok, data} = File.read(file)
-    IO.puts("Searching for #{target} in file #{file}")
     data
     |> prepare
     |> Enum.sort(&(&1 < &2))
     |> divide_and_conquer_for(target)
-    |> show_results
+  end
+
+  defp fetch_files do
+    Path.wildcard("data/players/*.txt")
   end
 
   defp divide_and_conquer_for(list, target) when is_list(list) do
@@ -34,12 +54,11 @@ defmodule BinarySearch do
     end
   end
 
-  defp show_results("Number not found.") do
-    IO.puts("#{"\u274C"}  Nope. That number is not in file")
-  end
-
-  defp show_results(target) do
-    IO.puts("#{"\u2705"}  Yes, Number #{target} is present in file.")
+  defp get_result do
+    receive do
+      {"Number not found.", file} -> IO.puts "#{"\u274C"}  Nope. that number is not in file #{file}"
+      {_, file} -> IO.puts "#{"\u2705"}  Yes, Number is present in file #{file}."
+    end
   end
 
   defp prepare(data) do
@@ -50,5 +69,3 @@ defmodule BinarySearch do
     |> Enum.map(&String.to_integer(&1))
   end
 end
-
-BinarySearch.find_in("data/file_of_numbers.txt", 777)
