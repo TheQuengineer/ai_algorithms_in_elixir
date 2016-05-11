@@ -16,4 +16,4 @@ def generate(player_count)
   puts "Generated #{player_count} players in data/players/"
 end
 
-generate(500)
+generate(25)
