@@ -3,7 +3,7 @@ require "faker"
 def generate(player_count)
   player_files = []
   player_count.times do
-    player_files.push("#{Faker::Name.first_name.downcase}.txt")
+    player_files.push("#{Faker::Name.first_name.downcase}-id-#{rand(20002)}.txt")
   end
   player_files.each do | file |
     File.open("data/players/#{file}", 'w') do | file |
@@ -16,4 +16,4 @@ def generate(player_count)
   puts "Generated #{player_count} players in data/players/"
 end
 
-generate(25)
+generate(20000)

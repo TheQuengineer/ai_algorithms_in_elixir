@@ -10,18 +10,23 @@ defmodule ConcurrentSearch do
   """
 
   def find(target) when is_number(target) do
-    search_through = fn(file, target) ->
-      IO.puts("Searching for #{target} in file #{file}")
-      caller = self()
-      spawn(fn() ->
-        send(caller, {find_in(file, target), file})
-      end)
-      get_result
-    end
-
+    start_results_list
     files = fetch_files()
+    IO.puts("Searching for #{target} in all #{IO.inspect(length(files))} files")
+    {time, _} = :timer.tc(fn -> search_in(files, target) end)
+    IO.inspect(Agent.get(__MODULE__, &(&1)))
+    IO.puts("Search completed in #{IO.inspect(time)} MicroSeconds!")
+  end
 
-    Enum.each(files, &search_through.(&1, target))
+  defp search_in(files, target) do
+    current_caller = self
+    files
+    |> Enum.map(fn(file) ->
+      spawn_link(fn() ->
+        send(current_caller, {self, find_in(file, target), file})
+      end)
+    end)
+    |> Enum.map(fn(pid) -> get_result_for(pid) end)
   end
 
   def find_in(file, target) when is_bitstring(file) and is_integer(target) do
@@ -54,10 +59,14 @@ defmodule ConcurrentSearch do
     end
   end
 
-  defp get_result do
+  defp get_result_for(pid) do
     receive do
-      {"Number not found.", file} -> IO.puts "#{"\u274C"}  Nope. that number is not in file #{file}"
-      {_, file} -> IO.puts "#{"\u2705"}  Yes, Number is present in file #{file}."
+      {^pid, "Number not found.", file} ->
+        response = "#{"\u274C"}  Nope. that number is not in file #{file}"
+        Agent.update(__MODULE__, fn(list) -> [response | list] end)
+      {^pid, number, file} ->
+        response = "#{"\u2705"}  Yes, #{number} is present in file #{file}."
+        Agent.update(__MODULE__, fn(list) -> [response | list] end)
     end
   end
 
@@ -67,6 +76,10 @@ defmodule ConcurrentSearch do
     str_numbers_list
     |> List.flatten
     |> Enum.map(&String.to_integer(&1))
+  end
+
+  defp start_results_list do
+    Agent.start(fn() -> [] end, [name: __MODULE__])
   end
 end
 
