@@ -38,7 +38,7 @@ defmodule ConcurrentSearch do
   end
 
   defp fetch_files do
-    Path.wildcard("data/players/*.txt")
+    Path.wildcard("data/people/*.txt")
   end
 
   defp divide_and_conquer_for(list, target) when is_list(list) do
