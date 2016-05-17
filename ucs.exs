@@ -6,10 +6,11 @@ defmodule UniformCostSearch do
   This module will illustrate an example of how it can be used in the real world.
   It accompanies the Uniform Cost Search blog post on http://automatingthefuture.com
   """
+  @investment_file "data/investment/options.txt"
 
-  def fetch_projections_from(file) when is_binary(file)  do
+  def fetch_projections  do
     start_possible_investments_list
-    {_, data} = File.read("data/investmentOptions.txt")
+    data = File.read!(@investment_file)
     data
     |> String.rstrip(?\n)
     |> String.split("\n")
@@ -34,4 +35,4 @@ defmodule UniformCostSearch do
 end
 
 
-UniformCostSearch.fetch_projections_from("data/investmentOptions.txt")
+UniformCostSearch.fetch_projections
